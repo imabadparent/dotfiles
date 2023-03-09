@@ -1,0 +1,107 @@
+" vifm config
+
+"###############
+"### General ###
+"###############
+
+" Set vim command
+set vicmd=nvim
+
+" Automatically run executables
+set runexec
+
+" Set colorscheme to dracula
+colorscheme dracula
+
+" Line numbers
+set number
+set relativenumber
+
+" Show hidden files
+set dotfiles
+
+" Sort numbered files
+set sortnumbers
+
+" Save state
+set vifminfo=dhistory,chistory,shistory,phistory,fhistory,state,tui,dirstack,registers,bookmarks,bmarks
+
+" To be sorted
+set vimhelp
+set timefmt=%d/%m\ %H:%M
+set wildmenu
+set wildstyle=popup
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set scrolloff=9999
+
+
+"################
+"### Mappings ###
+"################
+
+nnoremap w  :view<cr>
+nnoremap s  :shell<cr>
+nnoremap fb :! feh --no-fehbg --bg-fill %c &<cr>
+nnoremap e  :edit<cr>
+nnoremap o  :touch ./
+
+
+"#################
+"### Clipboard ###
+"#################
+
+" Yank current directory path into the clipboard
+nnoremap yd :!echo %d | xclip %i<cr>
+" Yank current file path into the clipboard
+nnoremap yf :!echo %c:p | xclip %i<cr>
+
+
+"##################
+"### Open Files ###
+"##################
+
+filetype *.pdf
+    \ zathura %c
+
+filetype <image/*>
+    \ feh %c
+
+
+"######################
+"### Image Previews ###
+"######################
+
+fileviewer *.pdf
+    \ vifmimg pdf %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer *.djvu
+    \ vifmimg djvu %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer *.epub
+    \ vifmimg epub %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer <video/*>
+    \ vifmimg video %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer <image/*>
+    \ vifmimg draw %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer <audio/*>
+    \ vifmimg audio %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear
+
+fileviewer <font/*>
+    \ vifmimg font %px %py %pw %ph %c
+    \ %pc
+    \ vifmimg clear

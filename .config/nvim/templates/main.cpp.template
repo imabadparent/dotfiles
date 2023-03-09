@@ -1,0 +1,10 @@
+/**
+ * @author      : {{NAME}}
+ * @file        : {{FILE}}
+ * @created     : {{TIMESTAMP}}
+ */
+
+int main(void) {
+    {{CURSOR}}
+    return 0;
+}

@@ -1,0 +1,11 @@
+/**
+ * @author      : {{NAME}}
+ * @created     : {{TIMESTAMP}}
+ * @filename    : {{FILE}}
+ */
+#ifndef {{MACRO_GUARD}}
+#define {{MACRO_GUARD}}
+
+{{CURSOR}}
+
+#endif /* {{MACRO_GUARD}} */

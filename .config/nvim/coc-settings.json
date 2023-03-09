@@ -1,0 +1,5 @@
+{
+    "inlayHint.enable": false,
+    "semanticTokens.enable": true,
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-19-openjdk"
+}

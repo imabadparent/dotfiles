@@ -1,0 +1,55 @@
+#! /bin/zsh
+########################################################
+## Custom aliases
+
+# Remove default aliases
+unalias -a
+
+# Add aliases
+alias byecom="killall picom"
+alias dat="date +\"%Y-%m-%dT%H:%M:%S\""
+alias datw="date +\"%Y-W%W-%uT%H:%M:%S\""
+alias edit="$EDITOR"
+alias hc="herbstclient"
+alias herb="cd ~ && startx --config ~/.config/X11/xinitrc"
+alias plasma="cd ~ && startx /usr/bin/startplasma-x11"
+alias ls="exa -lah --sort=Name --git --icons"
+alias mkcd=". mkcd"
+alias open="xdg-open"
+alias par="paru"
+alias refresh=". refresh "
+alias acd='alacritty msg create-window --working-directory=$(pwd)'
+alias wtr='curl "wttr.in/Blacksburg?0M"'
+alias wetter='curl "wttr.in/Blacksburg?M"'
+alias cat='bat'
+alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'
+
+# dot aliases
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
+alias -g ......="../../../../.."
+alias -g .......="../../../../../.."
+
+# Global aliases
+alias -g zdd="$ZDOTDIR"
+
+# functions
+ow() {
+    cd $HOME
+    startx /usr/local/bin/onewin /bin/$@
+}
+
+fpr() {
+    if [ -n "$1" ] ; then
+        sudo rm /usr/local/bin/"$1"
+    fi
+    for file in $(/usr/bin/ls /var/lib/flatpak/exports/bin) ; do
+        app=$(echo "$file" | cut -d . -f 3)
+        if ! [ -f "/usr/local/bin/$app" ] ; then
+            sudo ln -s /var/lib/flatpak/exports/bin/"$file" /usr/local/bin/"$app"
+        fi
+    done
+}
+
+#######################################################
